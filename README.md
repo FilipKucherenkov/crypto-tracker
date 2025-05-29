@@ -16,6 +16,7 @@
 ### Coinbase websocket
 - To manually test websocket I used https://github.com/vi/websocat
 - Websocket docs: https://docs.cdp.coinbase.com/exchange/docs/websocket-overview
+
 Example:
 ```
  wss://ws-feed.exchange.coinbase.com
