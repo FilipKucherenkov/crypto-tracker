@@ -11,3 +11,15 @@
   - Price volatility
 - Trigger alerts when certain thresholds are exceeded (e.g., price drops 5% in 10s).
 - Output results to a dashboard (Grafana via InfluxDB or REST API).
+
+
+### Coinbase websocket
+- To manually test websocket I used https://github.com/vi/websocat
+- Websocket docs: https://docs.cdp.coinbase.com/exchange/docs/websocket-overview
+Example:
+```
+ wss://ws-feed.exchange.coinbase.com
+{"type":"subscribe","product_ids":["ETH-USD","ETH-EUR"],"channels":["level2","heartbeat",{"name":"ticker","product_ids":["ETH-BTC","ETH-USD"]}]}
+```
+
+
