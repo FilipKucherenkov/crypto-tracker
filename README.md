@@ -12,6 +12,7 @@
 - Trigger alerts when certain thresholds are exceeded (e.g., price drops 5% in 10s).
 - Output results to a dashboard (Grafana via InfluxDB or REST API).
 
+### Architecture Diagram
 
 ### Useful information
 #### Coinbase websocket
