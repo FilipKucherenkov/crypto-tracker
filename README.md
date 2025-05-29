@@ -12,9 +12,9 @@
 - Trigger alerts when certain thresholds are exceeded (e.g., price drops 5% in 10s).
 - Output results to a dashboard (Grafana via InfluxDB or REST API).
 
-### Architecture Diagram
+### 🏗️ Architecture Diagram
 
-### Useful information
+### 🛠 Extra info
 #### Coinbase websocket
 - To manually test websocket I used https://github.com/vi/websocat
 - Websocket docs: https://docs.cdp.coinbase.com/exchange/docs/websocket-overview
