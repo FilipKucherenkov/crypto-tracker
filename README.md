@@ -13,7 +13,8 @@
 - Output results to a dashboard (Grafana via InfluxDB or REST API).
 
 
-### Coinbase websocket
+### Useful information
+#### Coinbase websocket
 - To manually test websocket I used https://github.com/vi/websocat
 - Websocket docs: https://docs.cdp.coinbase.com/exchange/docs/websocket-overview
 
