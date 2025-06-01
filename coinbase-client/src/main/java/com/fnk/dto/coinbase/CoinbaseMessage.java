@@ -1,6 +1,7 @@
 package com.fnk.dto.coinbase;
 
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.OffsetDateTime;
@@ -39,6 +40,14 @@ public class CoinbaseMessage {
 
     public void setProductId(String productId) {
         this.productId = productId;
+    }
+
+    public OffsetDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(OffsetDateTime time) {
+        this.time = time;
     }
 
     @Override

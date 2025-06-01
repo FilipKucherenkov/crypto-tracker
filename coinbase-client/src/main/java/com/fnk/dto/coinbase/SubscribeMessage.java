@@ -30,7 +30,6 @@ public record SubscribeMessage(
         tickerChannel.put("product_ids", productIds);
 
         List<Object> channels = List.of(
-                "level2",
                 "heartbeat",
                 tickerChannel
         );

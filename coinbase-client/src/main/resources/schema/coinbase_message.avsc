@@ -1,0 +1,11 @@
+{
+  "namespace": "com.fnk.dto.coinbase",
+  "type": "record",
+  "name": "CoinbaseMessageAvro",
+  "fields": [
+    {"name": "type", "type": "string"},
+    {"name": "sequence", "type": "string"},
+    {"name": "product_id", "type": "string"},
+    {"name": "time", "type": "string"}
+  ]
+}

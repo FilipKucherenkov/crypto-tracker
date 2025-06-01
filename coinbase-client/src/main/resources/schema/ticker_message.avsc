@@ -1,0 +1,24 @@
+{
+  "namespace": "com.fnk.dto.coinbase",
+  "type": "record",
+  "name": "TickerMessageAvro",
+  "fields": [
+    {"name": "type", "type": "string"},
+    {"name": "sequence", "type": "string"},
+    {"name": "product_id", "type": "string"},
+    {"name": "time", "type": "string"},
+    {"name": "price", "type": "double"},
+    {"name": "open_24h", "type": "double"},
+    {"name": "volume_24h", "type": "double"},
+    {"name": "low_24h", "type": "double"},
+    {"name": "high_24h", "type": "double"},
+    {"name": "volume_30d", "type": "double"},
+    {"name": "best_bid", "type": "double"},
+    {"name": "best_bid_size", "type": "double"},
+    {"name": "best_ask", "type": "double"},
+    {"name": "best_ask_size", "type": "double"},
+    {"name": "side", "type": "string"},
+    {"name": "trade_id", "type": "long"},
+    {"name": "last_size", "type": "double"}
+  ]
+}

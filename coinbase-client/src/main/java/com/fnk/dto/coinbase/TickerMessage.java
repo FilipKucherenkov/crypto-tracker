@@ -180,4 +180,6 @@ public class TickerMessage extends CoinbaseMessage {
                 ", lastSize=" + lastSize +
                 '}';
     }
+
+
 }

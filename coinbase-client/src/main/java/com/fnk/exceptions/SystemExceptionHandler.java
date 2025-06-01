@@ -1,6 +1,6 @@
 package com.fnk.exceptions;
 
-import com.fnk.dto.SocketClientErrorResponse;
+import com.fnk.dto.SystemErrorResponse;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Produces;
@@ -9,11 +9,11 @@ import jakarta.inject.Singleton;
 
 @Produces
 @Singleton
-public class SocketClientExceptionHandler implements ExceptionHandler<SocketClientException, HttpResponse<?>> {
+public class SystemExceptionHandler implements ExceptionHandler<SystemException, HttpResponse<?>> {
 
     @Override
-    public HttpResponse<?> handle(HttpRequest request, SocketClientException exception) {
-        SocketClientErrorResponse error = new SocketClientErrorResponse(
+    public HttpResponse<?> handle(HttpRequest request, SystemException exception) {
+        SystemErrorResponse error = new SystemErrorResponse(
                 exception.getErrorCode(),
                 exception.getMessage()
         );

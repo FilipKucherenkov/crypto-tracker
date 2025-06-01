@@ -20,7 +20,6 @@ public class SocketController {
 
     @Post("/exchange-connection")
     public HttpResponse<ExchangeConnectionResponse> connect(@Body ExchangeConnectionRequest connectionRequest) {
-
         return switch (connectionRequest.connectionAction()) {
             case CONNECT -> {
                 webSocketService.connect(connectionRequest);
