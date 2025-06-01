@@ -1,8 +1,6 @@
 ## Coinbase client
 Simple Micronaut app with a single endpoint which establishes connection to Coinbase's websocket and then brodcasts messages to a Kafka topic.
 
-
-
 ### Socket endpoint
 
 #### Opening a connection
