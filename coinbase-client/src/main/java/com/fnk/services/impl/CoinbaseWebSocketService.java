@@ -3,7 +3,7 @@ package com.fnk.services.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fnk.dto.ExchangeConnectionRequest;
+import com.fnk.dto.CoinbaseConnectionRequest;
 import com.fnk.dto.coinbase.CoinbaseMessage;
 import com.fnk.dto.coinbase.SubscribeMessage;
 import com.fnk.enums.CoinbaseMessageType;
@@ -52,8 +52,8 @@ public class CoinbaseWebSocketService implements WebSocketService {
 
 
     @Override
-    public void connect(ExchangeConnectionRequest exchangeConnectionRequest) {
-        this.subscribeMessage = SubscribeMessage.from(exchangeConnectionRequest);
+    public void connect(CoinbaseConnectionRequest coinbaseConnectionRequest) {
+        this.subscribeMessage = SubscribeMessage.from(coinbaseConnectionRequest);
 
         try{
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();

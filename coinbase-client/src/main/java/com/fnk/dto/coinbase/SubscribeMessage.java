@@ -2,7 +2,7 @@ package com.fnk.dto.coinbase;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fnk.dto.ExchangeConnectionRequest;
+import com.fnk.dto.CoinbaseConnectionRequest;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -16,7 +16,7 @@ public record SubscribeMessage(
 ) {
     private static final List<String> DEFAULT_PRODUCTS = List.of("ETH-USD", "ETH-EUR");
 
-    public static SubscribeMessage from(ExchangeConnectionRequest request){
+    public static SubscribeMessage from(CoinbaseConnectionRequest request){
         if(Objects.isNull(request.productIds()) || request.productIds().isEmpty()){
             return buildMessage(DEFAULT_PRODUCTS);
         }

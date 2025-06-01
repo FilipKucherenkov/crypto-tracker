@@ -1,17 +1,17 @@
 package com.fnk.services;
 
 
-import com.fnk.dto.ExchangeConnectionRequest;
+import com.fnk.dto.CoinbaseConnectionRequest;
 
 public interface WebSocketService {
 
     /**
      * Establish a new websocket connection.
      *
-     * @param exchangeConnectionRequest: Optionally specify product ids to subscribe to. If no productIds are
+     * @param coinbaseConnectionRequest: Optionally specify product ids to subscribe to. If no productIds are
      * are specify, default ones will be used.
      */
-    void connect(ExchangeConnectionRequest exchangeConnectionRequest);
+    void connect(CoinbaseConnectionRequest coinbaseConnectionRequest);
 
     /**
      * Close websocket connection

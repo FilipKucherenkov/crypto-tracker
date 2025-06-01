@@ -1,8 +1,8 @@
 package com.fnk.endpoint;
 
 
-import com.fnk.dto.ExchangeConnectionRequest;
-import com.fnk.dto.ExchangeConnectionResponse;
+import com.fnk.dto.CoinbaseConnectionRequest;
+import com.fnk.dto.CoinbaseConnectionResponse;
 import com.fnk.services.WebSocketService;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Body;
@@ -10,24 +10,24 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Post;
 
 @Controller("/api/v1")
-public class SocketController {
+public class CoinbaseConnectionEndpoint {
 
     private final WebSocketService webSocketService;
 
-    public SocketController(WebSocketService webSocketService) {
+    public CoinbaseConnectionEndpoint(WebSocketService webSocketService) {
         this.webSocketService = webSocketService;
     }
 
     @Post("/exchange-connection")
-    public HttpResponse<ExchangeConnectionResponse> connect(@Body ExchangeConnectionRequest connectionRequest) {
+    public HttpResponse<CoinbaseConnectionResponse> connect(@Body CoinbaseConnectionRequest connectionRequest) {
         return switch (connectionRequest.connectionAction()) {
             case CONNECT -> {
                 webSocketService.connect(connectionRequest);
-                yield HttpResponse.ok(new ExchangeConnectionResponse("connection opened successfully"));
+                yield HttpResponse.ok(new CoinbaseConnectionResponse("connection opened successfully"));
             }
             case CLOSE_CONNECTION -> {
                 webSocketService.close();
-                yield HttpResponse.ok(new ExchangeConnectionResponse("connection closed successfully"));
+                yield HttpResponse.ok(new CoinbaseConnectionResponse("connection closed successfully"));
             }
         };
 
