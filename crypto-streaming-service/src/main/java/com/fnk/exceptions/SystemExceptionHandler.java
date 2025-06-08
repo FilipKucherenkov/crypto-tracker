@@ -1,6 +1,6 @@
 package com.fnk.exceptions;
 
-import com.fnk.dto.SystemErrorResponse;
+import com.fnk.data.dto.rest.SystemErrorResponse;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Produces;

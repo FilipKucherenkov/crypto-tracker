@@ -1,4 +1,4 @@
-package com.fnk.dto.coinbase;
+package com.fnk.data.dto.websocket;
 
 
 

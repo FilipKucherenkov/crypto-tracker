@@ -1,6 +1,6 @@
-package com.fnk.dto;
+package com.fnk.data.dto.rest;
 
-import com.fnk.enums.ConnectionAction;
+import com.fnk.data.enums.ConnectionAction;
 
 import java.util.List;
 

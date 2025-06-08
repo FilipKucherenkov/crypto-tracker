@@ -1,13 +1,13 @@
 package com.fnk.services.impl;
 
-import com.fnk.dto.coinbase.CoinbaseMessage;
-import com.fnk.dto.coinbase.HeartbeatMessage;
-import com.fnk.dto.coinbase.HeartbeatMessageAvro;
-import com.fnk.dto.coinbase.SubscriptionsMessage;
-import com.fnk.dto.coinbase.SubscriptionsMessageAvro;
-import com.fnk.dto.coinbase.TickerMessage;
-import com.fnk.dto.coinbase.TickerMessageAvro;
-import com.fnk.dto.coinbase.ChannelAvro;
+import com.fnk.data.dto.avro.ChannelAvro;
+import com.fnk.data.dto.avro.HeartbeatMessageAvro;
+import com.fnk.data.dto.avro.SubscriptionsMessageAvro;
+import com.fnk.data.dto.avro.TickerMessageAvro;
+import com.fnk.data.dto.websocket.CoinbaseMessage;
+import com.fnk.data.dto.websocket.HeartbeatMessage;
+import com.fnk.data.dto.websocket.SubscriptionsMessage;
+import com.fnk.data.dto.websocket.TickerMessage;
 
 import jakarta.inject.Singleton;
 import org.apache.avro.io.BinaryEncoder;

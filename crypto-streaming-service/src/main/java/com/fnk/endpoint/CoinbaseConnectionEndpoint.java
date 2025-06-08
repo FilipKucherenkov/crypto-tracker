@@ -1,8 +1,8 @@
 package com.fnk.endpoint;
 
 
-import com.fnk.dto.CoinbaseConnectionRequest;
-import com.fnk.dto.CoinbaseConnectionResponse;
+import com.fnk.data.dto.rest.CoinbaseConnectionRequest;
+import com.fnk.data.dto.rest.CoinbaseConnectionResponse;
 import com.fnk.services.WebSocketService;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Body;

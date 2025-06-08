@@ -1,5 +1,5 @@
-package com.fnk.dto;
+package com.fnk.data.dto.rest;
 
-import com.fnk.enums.ErrorCode;
+import com.fnk.data.enums.ErrorCode;
 
 public record SystemErrorResponse(ErrorCode code, String message){}

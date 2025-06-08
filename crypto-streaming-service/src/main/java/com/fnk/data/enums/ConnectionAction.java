@@ -1,4 +1,4 @@
-package com.fnk.enums;
+package com.fnk.data.enums;
 
 public enum ConnectionAction {
     CONNECT,

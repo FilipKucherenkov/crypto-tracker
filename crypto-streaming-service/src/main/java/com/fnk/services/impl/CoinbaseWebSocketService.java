@@ -2,10 +2,10 @@ package com.fnk.services.impl;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fnk.dto.CoinbaseConnectionRequest;
-import com.fnk.dto.coinbase.CoinbaseMessage;
-import com.fnk.dto.coinbase.SubscribeMessage;
-import com.fnk.enums.ErrorCode;
+import com.fnk.data.dto.rest.CoinbaseConnectionRequest;
+import com.fnk.data.dto.websocket.CoinbaseMessage;
+import com.fnk.data.dto.websocket.SubscribeMessage;
+import com.fnk.data.enums.ErrorCode;
 import com.fnk.exceptions.AvroSerializationException;
 import com.fnk.exceptions.SystemException;
 import com.fnk.services.MessageProducer;

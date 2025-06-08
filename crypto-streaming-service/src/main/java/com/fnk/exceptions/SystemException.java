@@ -1,6 +1,6 @@
 package com.fnk.exceptions;
 
-import com.fnk.enums.ErrorCode;
+import com.fnk.data.enums.ErrorCode;
 
 
 /**

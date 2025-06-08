@@ -1,8 +1,8 @@
-package com.fnk.dto.coinbase;
+package com.fnk.data.dto.websocket;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fnk.dto.CoinbaseConnectionRequest;
+import com.fnk.data.dto.rest.CoinbaseConnectionRequest;
 
 import java.util.LinkedHashMap;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.fnk.services;
 
 
-import com.fnk.dto.CoinbaseConnectionRequest;
+import com.fnk.data.dto.rest.CoinbaseConnectionRequest;
 
 public interface WebSocketService {
 

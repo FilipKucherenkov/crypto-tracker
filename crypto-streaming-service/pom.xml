@@ -125,7 +125,7 @@
                         </goals>
                         <configuration>
                             <!-- Path to Avro schema files -->
-                            <sourceDirectory>${project.basedir}/src/main/resources/schema</sourceDirectory>
+                            <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
                             <!-- Where to generate Java classes -->
                             <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
                             <stringType>String</stringType>

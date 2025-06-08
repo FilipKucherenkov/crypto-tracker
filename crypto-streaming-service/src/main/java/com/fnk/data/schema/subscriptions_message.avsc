@@ -1,5 +1,5 @@
 {
-  "namespace": "com.fnk.dto.coinbase",
+  "namespace": "com.fnk.data.dto.avro",
   "type": "record",
   "name": "SubscriptionsMessageAvro",
   "doc": "Message Coinbase sends back after a successful subscription request.",
