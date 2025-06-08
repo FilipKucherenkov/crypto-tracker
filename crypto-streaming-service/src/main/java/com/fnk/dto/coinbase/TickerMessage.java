@@ -1,8 +1,18 @@
 package com.fnk.dto.coinbase;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.OffsetDateTime;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TickerMessage extends CoinbaseMessage {
+    @JsonProperty("sequence")
+    private String sequence;
+    @JsonProperty("product_id")
+    private String productId;
+    @JsonProperty("time")
+    private OffsetDateTime time;
 
     // The current price of the product
     @JsonProperty("price")
@@ -57,6 +67,35 @@ public class TickerMessage extends CoinbaseMessage {
     private double lastSize;
 
     public TickerMessage() {}
+
+    @Override
+    public String partitioningKey() {
+        return String.format("%s-%s", getType(), this.productId);
+    }
+
+    public String getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(String sequence) {
+        this.sequence = sequence;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public OffsetDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(OffsetDateTime time) {
+        this.time = time;
+    }
 
     public double getPrice() {
         return price;

@@ -6,7 +6,7 @@ import io.micronaut.configuration.kafka.annotation.Topic;
 
 @KafkaClient
 public interface MessageProducer {
-    @Topic("coinbase-message")
+    @Topic("coinbase-messages")
     void send(
             @KafkaKey String key,
             byte[] coinbaseMessage

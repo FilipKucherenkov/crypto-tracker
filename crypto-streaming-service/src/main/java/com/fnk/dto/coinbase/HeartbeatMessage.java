@@ -1,29 +1,26 @@
 package com.fnk.dto.coinbase;
 
-
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.OffsetDateTime;
 
-public class CoinbaseMessage {
-    @JsonProperty("type")
-    private String type;
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class HeartbeatMessage extends CoinbaseMessage{
     @JsonProperty("sequence")
     private String sequence;
     @JsonProperty("product_id")
     private String productId;
     @JsonProperty("time")
     private OffsetDateTime time;
+    @JsonProperty("last_trade_id")
+    private String lastTradeId;
 
-    public CoinbaseMessage() {}
+    public HeartbeatMessage(){}
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    @Override
+    public String partitioningKey() {
+        return String.format("%s-%s", getType(), this.productId);
     }
 
     public String getSequence() {
@@ -50,13 +47,11 @@ public class CoinbaseMessage {
         this.time = time;
     }
 
-    @Override
-    public String toString() {
-        return "CoinbaseMessage{" +
-                "type='" + type + '\'' +
-                ", sequence='" + sequence + '\'' +
-                ", productId='" + productId + '\'' +
-                ", time=" + time +
-                '}';
+    public String getLastTradeId() {
+        return lastTradeId;
+    }
+
+    public void setLastTradeId(String lastTradeId) {
+        this.lastTradeId = lastTradeId;
     }
 }

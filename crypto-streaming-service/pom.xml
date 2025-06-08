@@ -10,7 +10,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>coinbase-client</artifactId>
+    <artifactId>crypto-streaming-service</artifactId>
     <name>Coinbase Client</name>
     <packaging>jar</packaging>
 
@@ -77,6 +77,7 @@
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
         </dependency>
+
 
     </dependencies>
 

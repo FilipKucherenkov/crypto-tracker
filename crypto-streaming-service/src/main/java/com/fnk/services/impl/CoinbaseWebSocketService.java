@@ -1,12 +1,10 @@
 package com.fnk.services.impl;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fnk.dto.CoinbaseConnectionRequest;
 import com.fnk.dto.coinbase.CoinbaseMessage;
 import com.fnk.dto.coinbase.SubscribeMessage;
-import com.fnk.enums.CoinbaseMessageType;
 import com.fnk.enums.ErrorCode;
 import com.fnk.exceptions.AvroSerializationException;
 import com.fnk.exceptions.SystemException;
@@ -26,7 +24,6 @@ import jakarta.websocket.WebSocketContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.net.URI;
 import java.util.Objects;
 
@@ -93,16 +90,10 @@ public class CoinbaseWebSocketService implements WebSocketService {
     @OnMessage
     public void onMessage(String message) {
         try {
-            if(isSubscriptionRes(message)){
-                // This is the first message coinbase sends through the socket
-                return;
-            }
             CoinbaseMessage coinbaseMessage = objectMapper.readValue(message, CoinbaseMessage.class);
-            LOGGER.info("Read the following message from websocket: {}", coinbaseMessage.toString());
-
             // Stream data as avro bytes to kafka
             byte[] avroBytes = avroConverter.serializeToAvro(coinbaseMessage);
-            messageProducer.send(buildPartitioningKey(coinbaseMessage), avroBytes);
+            messageProducer.send(coinbaseMessage.partitioningKey(), avroBytes);
         } catch (Exception e) {
             LOGGER.error("Failed to read and serialize message from websocket: {}", message, e);
             throw new AvroSerializationException("Failed to read and serialize message from websocket", e);
@@ -119,24 +110,6 @@ public class CoinbaseWebSocketService implements WebSocketService {
         this.close();
         throw new SystemException("Error occurred from websocket", throwable, ErrorCode.SERVER_FAILURE);
 
-    }
-
-    private String buildPartitioningKey(CoinbaseMessage coinbaseMessage) {
-        if(CoinbaseMessageType.HEARTBEAT.messageType.equals(coinbaseMessage.getType())){
-            return String.format("%s-%s", CoinbaseMessageType.HEARTBEAT, coinbaseMessage.getProductId());
-        }
-        return String.format("%s-%s", CoinbaseMessageType.TICKER, coinbaseMessage.getProductId());
-    }
-
-    private boolean isSubscriptionRes(String message) throws IOException {
-        JsonNode rootNode = objectMapper.readTree(message);
-        String type = rootNode.has("type") ? rootNode.get("type").asText() : "";
-
-        if ("subscriptions".equals(type)) {
-            LOGGER.info("Received subscription message from websocket: {}", message);
-            return true;
-        }
-        return false;
     }
 
 }
