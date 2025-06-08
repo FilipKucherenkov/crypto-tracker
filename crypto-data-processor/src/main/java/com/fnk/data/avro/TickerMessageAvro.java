@@ -3,9 +3,11 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.fnk.data.model;
+package com.fnk.data.avro;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -13,10 +15,10 @@ import org.apache.avro.message.SchemaStore;
 /** Real-time price/size snapshot emitted by Coinbase’s “ticker” channel whenever a trade occurs. */
 @org.apache.avro.specific.AvroGenerated
 public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -653411925496561782L;
+  private static final long serialVersionUID = 5775137050624495098L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TickerMessageAvro\",\"namespace\":\"com.fnk.model\",\"doc\":\"Real-time price/size snapshot emitted by Coinbase’s “ticker” channel whenever a trade occurs.\",\"fields\":[{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Always the literal string \\\"ticker\\\".\"},{\"name\":\"sequence\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A monotonically increasing counter across the entire feed.\"},{\"name\":\"product_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Trading pair this update refers to, e.g. \\\"BTC-USD\\\".\"},{\"name\":\"time\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ISO-8601 timestamp (UTC) when Coinbase generated the message.\"},{\"name\":\"price\",\"type\":\"double\",\"doc\":\"Last trade price.\"},{\"name\":\"open_24h\",\"type\":\"double\",\"doc\":\"Price 24 h ago (opening of the rolling window).\"},{\"name\":\"volume_24h\",\"type\":\"double\",\"doc\":\"Total traded volume in the last 24 h.\"},{\"name\":\"low_24h\",\"type\":\"double\",\"doc\":\"Lowest trade price in the last 24 h.\"},{\"name\":\"high_24h\",\"type\":\"double\",\"doc\":\"Highest trade price in the last 24 h.\"},{\"name\":\"volume_30d\",\"type\":\"double\",\"doc\":\"Total traded volume in the last 30 days.\"},{\"name\":\"best_bid\",\"type\":\"double\",\"doc\":\"Current best bid price.\"},{\"name\":\"best_bid_size\",\"type\":\"double\",\"doc\":\"Size available at the best bid price.\"},{\"name\":\"best_ask\",\"type\":\"double\",\"doc\":\"Current best ask price.\"},{\"name\":\"best_ask_size\",\"type\":\"double\",\"doc\":\"Size available at the best ask price.\"},{\"name\":\"side\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"\\\"buy\\\" if aggressor bought, \\\"sell\\\" if aggressor sold.\"},{\"name\":\"trade_id\",\"type\":\"long\",\"doc\":\"Coinbase-assigned unique ID of the last trade.\"},{\"name\":\"last_size\",\"type\":\"double\",\"doc\":\"Quantity traded in the last match.\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TickerMessageAvro\",\"namespace\":\"com.fnk.data.avro\",\"doc\":\"Real-time price/size snapshot emitted by Coinbase’s “ticker” channel whenever a trade occurs.\",\"fields\":[{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Always the literal string \\\"ticker\\\".\"},{\"name\":\"sequence\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A monotonically increasing counter across the entire feed.\"},{\"name\":\"product_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Trading pair this update refers to, e.g. \\\"BTC-USD\\\".\"},{\"name\":\"time\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ISO-8601 timestamp (UTC) when Coinbase generated the message.\"},{\"name\":\"price\",\"type\":\"double\",\"doc\":\"Last trade price.\"},{\"name\":\"open_24h\",\"type\":\"double\",\"doc\":\"Price 24 h ago (opening of the rolling window).\"},{\"name\":\"volume_24h\",\"type\":\"double\",\"doc\":\"Total traded volume in the last 24 h.\"},{\"name\":\"low_24h\",\"type\":\"double\",\"doc\":\"Lowest trade price in the last 24 h.\"},{\"name\":\"high_24h\",\"type\":\"double\",\"doc\":\"Highest trade price in the last 24 h.\"},{\"name\":\"volume_30d\",\"type\":\"double\",\"doc\":\"Total traded volume in the last 30 days.\"},{\"name\":\"best_bid\",\"type\":\"double\",\"doc\":\"Current best bid price.\"},{\"name\":\"best_bid_size\",\"type\":\"double\",\"doc\":\"Size available at the best bid price.\"},{\"name\":\"best_ask\",\"type\":\"double\",\"doc\":\"Current best ask price.\"},{\"name\":\"best_ask_size\",\"type\":\"double\",\"doc\":\"Size available at the best ask price.\"},{\"name\":\"side\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"\\\"buy\\\" if aggressor bought, \\\"sell\\\" if aggressor sold.\"},{\"name\":\"trade_id\",\"type\":\"long\",\"doc\":\"Coinbase-assigned unique ID of the last trade.\"},{\"name\":\"last_size\",\"type\":\"double\",\"doc\":\"Quantity traded in the last match.\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -521,8 +523,8 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
    * Creates a new TickerMessageAvro RecordBuilder.
    * @return A new TickerMessageAvro RecordBuilder
    */
-  public static TickerMessageAvro.Builder newBuilder() {
-    return new TickerMessageAvro.Builder();
+  public static com.fnk.data.avro.TickerMessageAvro.Builder newBuilder() {
+    return new com.fnk.data.avro.TickerMessageAvro.Builder();
   }
 
   /**
@@ -530,11 +532,11 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
    * @param other The existing builder to copy.
    * @return A new TickerMessageAvro RecordBuilder
    */
-  public static TickerMessageAvro.Builder newBuilder(TickerMessageAvro.Builder other) {
+  public static com.fnk.data.avro.TickerMessageAvro.Builder newBuilder(com.fnk.data.avro.TickerMessageAvro.Builder other) {
     if (other == null) {
-      return new TickerMessageAvro.Builder();
+      return new com.fnk.data.avro.TickerMessageAvro.Builder();
     } else {
-      return new TickerMessageAvro.Builder(other);
+      return new com.fnk.data.avro.TickerMessageAvro.Builder(other);
     }
   }
 
@@ -543,11 +545,11 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
    * @param other The existing instance to copy.
    * @return A new TickerMessageAvro RecordBuilder
    */
-  public static TickerMessageAvro.Builder newBuilder(TickerMessageAvro other) {
+  public static com.fnk.data.avro.TickerMessageAvro.Builder newBuilder(com.fnk.data.avro.TickerMessageAvro other) {
     if (other == null) {
-      return new TickerMessageAvro.Builder();
+      return new com.fnk.data.avro.TickerMessageAvro.Builder();
     } else {
-      return new TickerMessageAvro.Builder(other);
+      return new com.fnk.data.avro.TickerMessageAvro.Builder(other);
     }
   }
 
@@ -602,7 +604,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(TickerMessageAvro.Builder other) {
+    private Builder(com.fnk.data.avro.TickerMessageAvro.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.type)) {
         this.type = data().deepCopy(fields()[0].schema(), other.type);
@@ -678,7 +680,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
      * Creates a Builder by copying an existing TickerMessageAvro instance
      * @param other The existing instance to copy.
      */
-    private Builder(TickerMessageAvro other) {
+    private Builder(com.fnk.data.avro.TickerMessageAvro other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.type)) {
         this.type = data().deepCopy(fields()[0].schema(), other.type);
@@ -766,7 +768,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'type'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setType(java.lang.String value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setType(java.lang.String value) {
       validate(fields()[0], value);
       this.type = value;
       fieldSetFlags()[0] = true;
@@ -788,7 +790,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Always the literal string "ticker".
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearType() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearType() {
       type = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -810,7 +812,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'sequence'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setSequence(java.lang.String value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setSequence(java.lang.String value) {
       validate(fields()[1], value);
       this.sequence = value;
       fieldSetFlags()[1] = true;
@@ -832,7 +834,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * A monotonically increasing counter across the entire feed.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearSequence() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearSequence() {
       sequence = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -854,7 +856,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'product_id'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setProductId(java.lang.String value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setProductId(java.lang.String value) {
       validate(fields()[2], value);
       this.product_id = value;
       fieldSetFlags()[2] = true;
@@ -876,7 +878,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Trading pair this update refers to, e.g. "BTC-USD".
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearProductId() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearProductId() {
       product_id = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -898,7 +900,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'time'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setTime(java.lang.String value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setTime(java.lang.String value) {
       validate(fields()[3], value);
       this.time = value;
       fieldSetFlags()[3] = true;
@@ -920,7 +922,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * ISO-8601 timestamp (UTC) when Coinbase generated the message.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearTime() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearTime() {
       time = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -942,7 +944,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'price'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setPrice(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setPrice(double value) {
       validate(fields()[4], value);
       this.price = value;
       fieldSetFlags()[4] = true;
@@ -964,7 +966,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Last trade price.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearPrice() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearPrice() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -985,7 +987,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'open_24h'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setOpen24h(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setOpen24h(double value) {
       validate(fields()[5], value);
       this.open_24h = value;
       fieldSetFlags()[5] = true;
@@ -1007,7 +1009,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Price 24 h ago (opening of the rolling window).
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearOpen24h() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearOpen24h() {
       fieldSetFlags()[5] = false;
       return this;
     }
@@ -1028,7 +1030,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'volume_24h'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setVolume24h(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setVolume24h(double value) {
       validate(fields()[6], value);
       this.volume_24h = value;
       fieldSetFlags()[6] = true;
@@ -1050,7 +1052,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Total traded volume in the last 24 h.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearVolume24h() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearVolume24h() {
       fieldSetFlags()[6] = false;
       return this;
     }
@@ -1071,7 +1073,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'low_24h'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setLow24h(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setLow24h(double value) {
       validate(fields()[7], value);
       this.low_24h = value;
       fieldSetFlags()[7] = true;
@@ -1093,7 +1095,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Lowest trade price in the last 24 h.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearLow24h() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearLow24h() {
       fieldSetFlags()[7] = false;
       return this;
     }
@@ -1114,7 +1116,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'high_24h'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setHigh24h(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setHigh24h(double value) {
       validate(fields()[8], value);
       this.high_24h = value;
       fieldSetFlags()[8] = true;
@@ -1136,7 +1138,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Highest trade price in the last 24 h.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearHigh24h() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearHigh24h() {
       fieldSetFlags()[8] = false;
       return this;
     }
@@ -1157,7 +1159,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'volume_30d'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setVolume30d(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setVolume30d(double value) {
       validate(fields()[9], value);
       this.volume_30d = value;
       fieldSetFlags()[9] = true;
@@ -1179,7 +1181,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Total traded volume in the last 30 days.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearVolume30d() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearVolume30d() {
       fieldSetFlags()[9] = false;
       return this;
     }
@@ -1200,7 +1202,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'best_bid'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setBestBid(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setBestBid(double value) {
       validate(fields()[10], value);
       this.best_bid = value;
       fieldSetFlags()[10] = true;
@@ -1222,7 +1224,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Current best bid price.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearBestBid() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearBestBid() {
       fieldSetFlags()[10] = false;
       return this;
     }
@@ -1243,7 +1245,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'best_bid_size'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setBestBidSize(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setBestBidSize(double value) {
       validate(fields()[11], value);
       this.best_bid_size = value;
       fieldSetFlags()[11] = true;
@@ -1265,7 +1267,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Size available at the best bid price.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearBestBidSize() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearBestBidSize() {
       fieldSetFlags()[11] = false;
       return this;
     }
@@ -1286,7 +1288,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'best_ask'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setBestAsk(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setBestAsk(double value) {
       validate(fields()[12], value);
       this.best_ask = value;
       fieldSetFlags()[12] = true;
@@ -1308,7 +1310,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Current best ask price.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearBestAsk() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearBestAsk() {
       fieldSetFlags()[12] = false;
       return this;
     }
@@ -1329,7 +1331,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'best_ask_size'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setBestAskSize(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setBestAskSize(double value) {
       validate(fields()[13], value);
       this.best_ask_size = value;
       fieldSetFlags()[13] = true;
@@ -1351,7 +1353,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Size available at the best ask price.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearBestAskSize() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearBestAskSize() {
       fieldSetFlags()[13] = false;
       return this;
     }
@@ -1372,7 +1374,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'side'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setSide(java.lang.String value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setSide(java.lang.String value) {
       validate(fields()[14], value);
       this.side = value;
       fieldSetFlags()[14] = true;
@@ -1394,7 +1396,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * "buy" if aggressor bought, "sell" if aggressor sold.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearSide() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearSide() {
       side = null;
       fieldSetFlags()[14] = false;
       return this;
@@ -1416,7 +1418,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'trade_id'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setTradeId(long value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setTradeId(long value) {
       validate(fields()[15], value);
       this.trade_id = value;
       fieldSetFlags()[15] = true;
@@ -1438,7 +1440,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Coinbase-assigned unique ID of the last trade.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearTradeId() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearTradeId() {
       fieldSetFlags()[15] = false;
       return this;
     }
@@ -1459,7 +1461,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'last_size'.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder setLastSize(double value) {
+    public com.fnk.data.avro.TickerMessageAvro.Builder setLastSize(double value) {
       validate(fields()[16], value);
       this.last_size = value;
       fieldSetFlags()[16] = true;
@@ -1481,7 +1483,7 @@ public class TickerMessageAvro extends org.apache.avro.specific.SpecificRecordBa
       * Quantity traded in the last match.
       * @return This builder.
       */
-    public TickerMessageAvro.Builder clearLastSize() {
+    public com.fnk.data.avro.TickerMessageAvro.Builder clearLastSize() {
       fieldSetFlags()[16] = false;
       return this;
     }

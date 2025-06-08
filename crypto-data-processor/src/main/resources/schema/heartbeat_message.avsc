@@ -1,5 +1,5 @@
 {
-  "namespace": "com.fnk.model",
+  "namespace": "com.fnk.data.avro",
   "type": "record",
   "name": "HeartbeatMessageAvro",
   "doc": "One-per-second keep-alive emitted by Coinbase when you subscribe to the “heartbeat” channel.",

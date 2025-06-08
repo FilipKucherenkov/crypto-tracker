@@ -3,19 +3,21 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.fnk.data.model;
+package com.fnk.data.avro;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3709383060238128059L;
+  private static final long serialVersionUID = 8584823713342033365L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ChannelAvro\",\"namespace\":\"com.fnk.model\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Channel name, e.g. heartbeat, ticker\"},{\"name\":\"product_ids\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"Products included in this channel\",\"default\":[]},{\"name\":\"account_ids\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"Present only for user channels; null otherwise\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ChannelAvro\",\"namespace\":\"com.fnk.data.avro\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Channel name, e.g. heartbeat, ticker\"},{\"name\":\"product_ids\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"Products included in this channel\",\"default\":[]},{\"name\":\"account_ids\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"Present only for user channels; null otherwise\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -184,8 +186,8 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
    * Creates a new ChannelAvro RecordBuilder.
    * @return A new ChannelAvro RecordBuilder
    */
-  public static ChannelAvro.Builder newBuilder() {
-    return new ChannelAvro.Builder();
+  public static com.fnk.data.avro.ChannelAvro.Builder newBuilder() {
+    return new com.fnk.data.avro.ChannelAvro.Builder();
   }
 
   /**
@@ -193,11 +195,11 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing builder to copy.
    * @return A new ChannelAvro RecordBuilder
    */
-  public static ChannelAvro.Builder newBuilder(ChannelAvro.Builder other) {
+  public static com.fnk.data.avro.ChannelAvro.Builder newBuilder(com.fnk.data.avro.ChannelAvro.Builder other) {
     if (other == null) {
-      return new ChannelAvro.Builder();
+      return new com.fnk.data.avro.ChannelAvro.Builder();
     } else {
-      return new ChannelAvro.Builder(other);
+      return new com.fnk.data.avro.ChannelAvro.Builder(other);
     }
   }
 
@@ -206,11 +208,11 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing instance to copy.
    * @return A new ChannelAvro RecordBuilder
    */
-  public static ChannelAvro.Builder newBuilder(ChannelAvro other) {
+  public static com.fnk.data.avro.ChannelAvro.Builder newBuilder(com.fnk.data.avro.ChannelAvro other) {
     if (other == null) {
-      return new ChannelAvro.Builder();
+      return new com.fnk.data.avro.ChannelAvro.Builder();
     } else {
-      return new ChannelAvro.Builder(other);
+      return new com.fnk.data.avro.ChannelAvro.Builder(other);
     }
   }
 
@@ -237,7 +239,7 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(ChannelAvro.Builder other) {
+    private Builder(com.fnk.data.avro.ChannelAvro.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.name)) {
         this.name = data().deepCopy(fields()[0].schema(), other.name);
@@ -257,7 +259,7 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing ChannelAvro instance
      * @param other The existing instance to copy.
      */
-    private Builder(ChannelAvro other) {
+    private Builder(com.fnk.data.avro.ChannelAvro other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.name)) {
         this.name = data().deepCopy(fields()[0].schema(), other.name);
@@ -289,7 +291,7 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'name'.
       * @return This builder.
       */
-    public ChannelAvro.Builder setName(java.lang.String value) {
+    public com.fnk.data.avro.ChannelAvro.Builder setName(java.lang.String value) {
       validate(fields()[0], value);
       this.name = value;
       fieldSetFlags()[0] = true;
@@ -311,7 +313,7 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
       * Channel name, e.g. heartbeat, ticker
       * @return This builder.
       */
-    public ChannelAvro.Builder clearName() {
+    public com.fnk.data.avro.ChannelAvro.Builder clearName() {
       name = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -333,7 +335,7 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'product_ids'.
       * @return This builder.
       */
-    public ChannelAvro.Builder setProductIds(java.util.List<java.lang.String> value) {
+    public com.fnk.data.avro.ChannelAvro.Builder setProductIds(java.util.List<java.lang.String> value) {
       validate(fields()[1], value);
       this.product_ids = value;
       fieldSetFlags()[1] = true;
@@ -355,7 +357,7 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
       * Products included in this channel
       * @return This builder.
       */
-    public ChannelAvro.Builder clearProductIds() {
+    public com.fnk.data.avro.ChannelAvro.Builder clearProductIds() {
       product_ids = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -377,7 +379,7 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'account_ids'.
       * @return This builder.
       */
-    public ChannelAvro.Builder setAccountIds(java.util.List<java.lang.String> value) {
+    public com.fnk.data.avro.ChannelAvro.Builder setAccountIds(java.util.List<java.lang.String> value) {
       validate(fields()[2], value);
       this.account_ids = value;
       fieldSetFlags()[2] = true;
@@ -399,7 +401,7 @@ public class ChannelAvro extends org.apache.avro.specific.SpecificRecordBase imp
       * Present only for user channels; null otherwise
       * @return This builder.
       */
-    public ChannelAvro.Builder clearAccountIds() {
+    public com.fnk.data.avro.ChannelAvro.Builder clearAccountIds() {
       account_ids = null;
       fieldSetFlags()[2] = false;
       return this;

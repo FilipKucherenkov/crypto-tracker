@@ -1,8 +1,8 @@
 package com.fnk.data.enums;
 
-import com.fnk.data.model.HeartbeatMessageAvro;
-import com.fnk.data.model.SubscriptionsMessageAvro;
-import com.fnk.data.model.TickerMessageAvro;
+import com.fnk.data.avro.HeartbeatMessageAvro;
+import com.fnk.data.avro.SubscriptionsMessageAvro;
+import com.fnk.data.avro.TickerMessageAvro;
 import org.apache.avro.specific.SpecificRecordBase;
 
 public enum InputDataset {
