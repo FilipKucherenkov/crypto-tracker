@@ -1,0 +1,44 @@
+{
+  "namespace": "com.fnk.model",
+  "type": "record",
+  "name": "TickerMessageAvro",
+  "doc": "Real-time price/size snapshot emitted by Coinbase’s “ticker” channel whenever a trade occurs.",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "doc": "Always the literal string \"ticker\"."
+    },
+    {
+      "name": "sequence",
+      "type": "string",
+      "doc": "A monotonically increasing counter across the entire feed."
+    },
+    {
+      "name": "product_id",
+      "type": "string",
+      "doc": "Trading pair this update refers to, e.g. \"BTC-USD\"."
+    },
+    {
+      "name": "time",
+      "type": "string",
+      "doc": "ISO-8601 timestamp (UTC) when Coinbase generated the message."
+    },
+
+    { "name": "price",          "type": "double", "doc": "Last trade price." },
+    { "name": "open_24h",       "type": "double", "doc": "Price 24 h ago (opening of the rolling window)." },
+    { "name": "volume_24h",     "type": "double", "doc": "Total traded volume in the last 24 h." },
+    { "name": "low_24h",        "type": "double", "doc": "Lowest trade price in the last 24 h." },
+    { "name": "high_24h",       "type": "double", "doc": "Highest trade price in the last 24 h." },
+    { "name": "volume_30d",     "type": "double", "doc": "Total traded volume in the last 30 days." },
+
+    { "name": "best_bid",       "type": "double", "doc": "Current best bid price." },
+    { "name": "best_bid_size",  "type": "double", "doc": "Size available at the best bid price." },
+    { "name": "best_ask",       "type": "double", "doc": "Current best ask price." },
+    { "name": "best_ask_size",  "type": "double", "doc": "Size available at the best ask price." },
+
+    { "name": "side",           "type": "string", "doc": "\"buy\" if aggressor bought, \"sell\" if aggressor sold." },
+    { "name": "trade_id",       "type": "long",   "doc": "Coinbase-assigned unique ID of the last trade." },
+    { "name": "last_size",      "type": "double", "doc": "Quantity traded in the last match." }
+  ]
+}

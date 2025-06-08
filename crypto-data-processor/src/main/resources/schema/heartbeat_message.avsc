@@ -1,0 +1,28 @@
+{
+  "namespace": "com.fnk.model",
+  "type": "record",
+  "name": "HeartbeatMessageAvro",
+  "doc": "One-per-second keep-alive emitted by Coinbase when you subscribe to the “heartbeat” channel.",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "doc": "Always the literal string \"heartbeat\"."
+    },
+    {
+      "name": "sequence",
+      "type": "string",
+      "doc": "A monotonically increasing counter (unique across the entire feed)."
+    },
+    {
+      "name": "product_id",
+      "type": "string",
+      "doc": "Market symbol this heartbeat refers to, e.g. \"BTC-USD\"."
+    },
+    {
+      "name": "time",
+      "type": "string",
+      "doc": "Timestamp Coinbase generated the message (ISO-8601, UTC)."
+    }
+  ]
+}

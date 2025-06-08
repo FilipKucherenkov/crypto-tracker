@@ -1,0 +1,32 @@
+{
+  "namespace": "com.fnk.model",
+  "type": "record",
+  "name": "SubscriptionsMessageAvro",
+  "doc": "Message Coinbase sends back after a successful subscription request.",
+  "fields": [
+    { "name": "type",        "type": "string", "doc": "Message category, e.g. \"subscriptions\"" },
+    {
+      "name": "channels",
+      "doc": "List of channels confirmed by Coinbase",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "ChannelAvro",
+          "fields": [
+            { "name": "name",         "type": "string", "doc": "Channel name, e.g. heartbeat, ticker" },
+            { "name": "product_ids",
+              "type": { "type": "array", "items": "string" },
+              "default": [],
+              "doc": "Products included in this channel" },
+            { "name": "account_ids",
+              "type": [ "null", { "type": "array", "items": "string" } ],
+              "default": null,
+              "doc": "Present only for user channels; null otherwise" }
+          ]
+        }
+      },
+      "default": []
+    }
+  ]
+}
